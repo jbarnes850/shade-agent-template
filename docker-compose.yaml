@@ -9,3 +9,35 @@ services:
         volumes:
             - /var/run/tappd.sock:/var/run/tappd.sock
         restart: always
+
+  worker-agent:
+    platform: linux/amd64 # Explicitly set for TDX
+    container_name: worker-agent
+    image: jarrodbarnes/shade-agent:latest
+    # You'll need to update this hash after building and pushing your image
+    # image: jarrodbarnes/shade-agent@sha256:replace_with_actual_hash_after_pushing
+    restart: always
+    ports:
+      - '3000:3000'
+    volumes:
+      - /var/run/tappd.sock:/var/run/tappd.sock
+    environment:
+      - NODE_ENV=production
+      - NEXT_PUBLIC_contractId=dcap.magical-part.testnet
+
+  dstack:
+    container_name: dstack
+    image: phalanetwork/dstack:latest
+    restart: always
+    cap_add:
+      - SYS_PTRACE
+    security_opt:
+      - seccomp:unconfined
+      - apparmor:unconfined
+    devices:
+      - /dev/sgx_enclave:/dev/sgx_enclave
+      - /dev/sgx_provision:/dev/sgx_provision
+    volumes:
+      - /var/run/aesmd:/var/run/aesmd
+    environment:
+      - DEV_MODE=0

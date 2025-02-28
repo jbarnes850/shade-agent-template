@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { contractView, getBalance } from '../utils/near-provider';
 import { formatNearAmount } from 'near-api-js/lib/utils/format';
 import Overlay from '../components/Overlay';
+import Link from 'next/link';
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
@@ -49,6 +50,15 @@ export default function Home() {
 
             <main className={styles.main}>
                 <h1 className={styles.title}>Based Agent Template</h1>
+                
+                <div style={{ margin: '1rem 0', padding: '1rem', backgroundColor: '#f0f9ff', borderRadius: '10px', maxWidth: '600px' }}>
+                    <h2 style={{ marginTop: 0 }}>Demo: Market Sentiment Analyzer</h2>
+                    <p>Try our quick demo that shows how a Shade Agent can analyze off-chain data and make on-chain allocation decisions.</p>
+                    <Link href="/sentiment-demo" style={{ color: '#0070f3', fontWeight: 'bold' }}>
+                        Launch Demo →
+                    </Link>
+                </div>
+                
                 <ol>
                     <li>
                         This worker agent app is designed to run on Phala Cloud

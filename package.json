@@ -6,11 +6,11 @@
         "build": "next build",
         "tappd:run": "sudo docker run --rm -p 8090:8090 phalanetwork/tappd-simulator:latest",
         "port:kill": "sudo fuser -k 3000/tcp",
-        "docker:build": "sudo docker build --no-cache --target dev -t my-nextjs-app:latest .",
-        "docker:run": "sudo docker run --rm -p 3000:3000 my-nextjs-app:latest",
-        "docker:image": "sudo docker build --no-cache --target prod -t mattdlockyer/based-agent-test:latest .",
-        "docker:push": "sudo docker push mattdlockyer/based-agent-test",
-        "docker:prune": "sudo docker system prune"
+        "docker:build": "docker build --no-cache --target dev -t my-nextjs-app:latest .",
+        "docker:run": "docker run --rm -p 3000:3000 my-nextjs-app:latest",
+        "docker:image": "docker build --no-cache --target prod -t jarrodbarnes/shade-agent:latest .",
+        "docker:push": "docker push jarrodbarnes/shade-agent",
+        "docker:prune": "docker system prune"
     },
     "dependencies": {
         "@phala/dcap-qvl-web": "^0.1.0-beta.2",
