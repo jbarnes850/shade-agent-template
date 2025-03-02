@@ -2,8 +2,7 @@
 
 ## Introduction
 
-Shade Agents are multichain, AI-powered smart contracts that are fully verified onchain and designed to eliminate single points of failure 
-They use NEAR's chain signatures for decentralized key management, and utilize "worker agents" running in Trusted Execution Environments (TEEs) to access off-chain state and make decisions utilizing the most powerful AI models.
+Shade Agents are multichain, AI-powered smart contracts that are fully verified onchain and designed to eliminate single points of failure. They use NEAR's chain signatures for decentralized key management, and utilize "worker agents" running in Trusted Execution Environments (TEEs) to access off-chain state and make decisions utilizing the most powerful AI models.
 
 Shade Agents can:
 - Sign transactions for every chain
